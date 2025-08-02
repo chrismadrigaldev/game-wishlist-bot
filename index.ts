@@ -1,7 +1,8 @@
 import {
   Client,
   GatewayIntentBits,
-  SlashCommandBuilder,
+  AutocompleteInteraction,
+  ChatInputCommandInteraction,
   TextChannel,
   EmbedBuilder,
   Partials,
@@ -23,15 +24,11 @@ const client = new Client({
   partials: [Partials.Message, Partials.Reaction, Partials.User]
 });
 
-type WishlistEntry = {
-  name: string;
-  appid: number;
-  suggester: string;
-};
+type WishlistEntry = { name: string; appid: number; suggester: string };
 
 let singleList: WishlistEntry[] = [];
 let multiList: WishlistEntry[] = [];
-let steamCache: Record<string, any> = {};
+let steamCache: Record<string, { name: string; appid: number; url: string }[]> = {};
 
 if (existsSync('wishlist_single.json')) singleList = JSON.parse(readFileSync('wishlist_single.json', 'utf-8'));
 if (existsSync('wishlist_multi.json')) multiList = JSON.parse(readFileSync('wishlist_multi.json', 'utf-8'));
@@ -45,61 +42,56 @@ function saveCache() {
   writeFileSync('steam_cache.json', JSON.stringify(steamCache, null, 2));
 }
 
-async function searchSteamGame(query: string): Promise<{ name: string; appid: number; url: string } | null> {
-  const cacheKey = `search:${query.toLowerCase()}`;
+async function searchSteamGame(query: string): Promise<{ name: string; appid: number; url: string }[]> {
+  const cleaned = query.toLowerCase().trim();
+  const cacheKey = `search:${cleaned}`;
   if (steamCache[cacheKey]) return steamCache[cacheKey];
-
-  const res = await fetch(`https://store.steampowered.com/api/storesearch/?term=${encodeURIComponent(query)}&cc=us&l=en`);
-  const json = await res.json();
-  if (json.items && json.items.length > 0) {
-    const top = json.items.find((item: any) => item.name.toLowerCase() === query.toLowerCase()) || json.items[0];
-
-    const result = {
-      name: top.name,
-      appid: top.id,
-      url: `https://store.steampowered.com/app/${top.id}`
-    };
-    steamCache[cacheKey] = result;
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 1500);
+    const res = await fetch(
+      `https://store.steampowered.com/api/storesearch/?term=${encodeURIComponent(cleaned)}&cc=us&l=en`,
+      { signal: controller.signal }
+    );
+    clearTimeout(timeout);
+    if (!res.ok) throw new Error(`Steam API ${res.status}`);
+    const data = await res.json();
+    const items = Array.isArray(data.items) ? data.items : [];
+    const results = items.slice(0, 10).map((item: any) => ({ name: item.name, appid: item.id, url: `https://store.steampowered.com/app/${item.id}` }));
+    steamCache[cacheKey] = results;
     saveCache();
-    return result;
+    return results;
+  } catch (err) {
+    console.warn('⚠️ Steam API search failed:', err);
+    return [];
   }
-  return null;
 }
 
-async function fetchSteamDetails(appid: number): Promise<{
-  name: string;
-  description: string;
-  price: string;
-  headerImage: string;
-  url: string;
-  categories: string[];
-  genres: string[];
-} | null> {
-  const res = await fetch(`https://store.steampowered.com/api/appdetails?appids=${appid}&cc=us&l=en`);
-  const data = await res.json();
-  const game = data[appid]?.data;
-  if (!game) return null;
-
-  const price = game.is_free ? 'Free' : (game.price_overview?.final_formatted || 'Unknown');
-  const description = game.short_description || 'No description provided.';
-  const categories = game?.categories?.map((c: any) => c.description) || [];
-  const genres = game?.genres?.map((g: any) => g.description) || [];
-  return {
-    name: game.name,
-    description,
-    price,
-    headerImage: game.header_image,
-    url: `https://store.steampowered.com/app/${appid}`,
-    categories,
-    genres
-  };
+async function fetchSteamDetails(appid: number) {
+  try {
+    const res = await fetch(`https://store.steampowered.com/api/appdetails?appids=${appid}&cc=us&l=en`);
+    const json = await res.json();
+    const game = json[appid]?.data;
+    if (!game) return null;
+    return {
+      name: game.name,
+      description: game.short_description || 'No description provided.',
+      price: game.is_free ? 'Free' : (game.price_overview?.final_formatted || 'Unknown'),
+      headerImage: game.header_image,
+      url: `https://store.steampowered.com/app/${appid}`,
+      categories: game.categories?.map((c: any) => c.description) || [],
+      genres: game.genres?.map((g: any) => g.description) || []
+    };
+  } catch {
+    return null;
+  }
 }
 
 function getGameType(categories: string[]): 'single' | 'multi' | 'both' | 'unknown' {
   const lower = categories.map(c => c.toLowerCase());
   const isSingle = lower.includes('single-player');
   const isMulti = lower.some(c => c.includes('multiplayer') || c.includes('co-op') || c.includes('cross-platform'));
-  if (isMulti) return 'multi'; // override: any multiplayer makes it multi-only
+  if (isMulti) return 'multi';
   if (isSingle) return 'single';
   return 'unknown';
 }
@@ -109,7 +101,6 @@ async function postGameEmbed(channelId: string, entry: WishlistEntry) {
   if (!channel?.isTextBased()) return;
   const details = await fetchSteamDetails(entry.appid);
   if (!details) return;
-
   const embed = new EmbedBuilder()
     .setTitle(details.name)
     .setURL(details.url)
@@ -120,54 +111,64 @@ async function postGameEmbed(channelId: string, entry: WishlistEntry) {
       { name: 'Tags', value: details.categories.join(', ') || 'N/A', inline: false }
     )
     .setImage(details.headerImage);
-
   await channel.send({ embeds: [embed] });
 }
 
-client.on('interactionCreate', async (interaction) => {
-  if (!interaction.isChatInputCommand()) return;
+client.on('interactionCreate', async interaction => {
+  if (interaction.isAutocomplete()) {
+    const focused = interaction.options.getFocused() as string;
+    try {
+      const raw = await searchSteamGame(focused);
+      const results = Array.isArray(raw) ? raw : [];
+      const choices = results.slice(0, 5).map(r => ({ name: r.name, value: r.name }));
+      await interaction.respond(choices);
+    } catch {
+      await interaction.respond([]);
+    }
+    return;
+  }
+
+  if (!interaction.isChatInputCommand() || interaction.commandName !== 'wishlist') return;
 
   const submissionChannel = process.env.SUBMISSION_CHANNEL_ID!;
   const singleDisplayChannel = process.env.WISHLIST_SINGLE_CHANNEL_ID!;
   const multiDisplayChannel = process.env.WISHLIST_MULTI_CHANNEL_ID!;
 
-  if (interaction.commandName === 'wishlist') {
-    const gameName = interaction.options.getString('game', true);
-    if (interaction.channel?.id !== submissionChannel) {
-      return interaction.reply({ content: '❌ Please use this in the designated submission channel.', ephemeral: true });
-    }
-
-    const steamGame = await searchSteamGame(gameName);
-    if (!steamGame) return interaction.reply({ content: '❌ Game not found on Steam.', ephemeral: true });
-
-    const details = await fetchSteamDetails(steamGame.appid);
-    if (!details) return interaction.reply({ content: '❌ Could not fetch game details.', ephemeral: true });
-
-    const type = getGameType(details.categories);
-    if (type === 'unknown') return interaction.reply({ content: '❌ Could not determine game type.', ephemeral: true });
-
-    const entry: WishlistEntry = {
-      name: steamGame.name,
-      appid: steamGame.appid,
-      suggester: interaction.user.username
-    };
-
-    const isDuplicate = (type === 'single') && singleList.some(g => g.appid === entry.appid) ||
-                        (type === 'multi') && multiList.some(g => g.appid === entry.appid);
-    if (isDuplicate) return interaction.reply({ content: '⚠️ This game is already in the wishlist.', ephemeral: true });
-
-    if (type === 'single') {
-      singleList.push(entry);
-      await postGameEmbed(singleDisplayChannel, entry);
-    }
-    if (type === 'multi') {
-      multiList.push(entry);
-      await postGameEmbed(multiDisplayChannel, entry);
-    }
-
-    saveLists();
-    await interaction.reply({ content: '👍', ephemeral: true });
+  const gameName = interaction.options.getString('game', true);
+  if (interaction.channel?.id !== submissionChannel) {
+    return interaction.reply({ content: '❌ Please use the designated submission channel.', ephemeral: true });
   }
+
+  const rawMatches = await searchSteamGame(gameName);
+  const matches = Array.isArray(rawMatches) ? rawMatches : [];
+  const steamGame = matches.find(m => m.name.toLowerCase() === gameName.toLowerCase()) || matches[0];
+  if (!steamGame) {
+    return interaction.reply({ content: '❌ Game not found on Steam.', ephemeral: true });
+  }
+
+  const details = await fetchSteamDetails(steamGame.appid);
+  if (!details) {
+    return interaction.reply({ content: '❌ Could not fetch game details.', ephemeral: true });
+  }
+
+  const type = getGameType(details.categories);
+  if (type === 'unknown') {
+    return interaction.reply({ content: '❌ Could not determine game type.', ephemeral: true });
+  }
+
+  const entry: WishlistEntry = { name: steamGame.name, appid: steamGame.appid, suggester: interaction.user.username };
+  const dup = (type === 'single' || type === 'both')
+    ? singleList.some(g => g.appid === entry.appid)
+    : multiList.some(g => g.appid === entry.appid);
+  if (dup) {
+    return interaction.reply({ content: '⚠️ This game is already in the wishlist.', ephemeral: true });
+  }
+
+  if (type === 'single') { singleList.push(entry); await postGameEmbed(singleDisplayChannel, entry); }
+  if (type === 'multi') { multiList.push(entry); await postGameEmbed(multiDisplayChannel, entry); }
+
+  saveLists();
+  await interaction.reply({ content: '👍', ephemeral: true });
 });
 
 client.on('messageReactionAdd', async (reaction, user) => {
@@ -229,8 +230,5 @@ client.on('messageReactionAdd', async (reaction, user) => {
   }
 });
 
-client.once('ready', () => {
-  console.log(`✅ Logged in as ${client.user?.tag}`);
-});
-
+client.once('ready', () => console.log(`✅ Logged in as ${client.user?.tag}`));
 client.login(process.env.DISCORD_TOKEN);

@@ -1,14 +1,4 @@
 {
-  "search:grounded": {
-    "name": "Grounded",
-    "appid": 962130,
-    "url": "https://store.steampowered.com/app/962130"
-  },
-  "search:darksiders": {
-    "name": "Darksiders III",
-    "appid": 606280,
-    "url": "https://store.steampowered.com/app/606280"
-  },
   "search:": [
     {
       "name": "Counter-Strike 2",
@@ -34,330 +24,31 @@
       "name": "Dead by Daylight",
       "appid": 381210,
       "url": "https://store.steampowered.com/app/381210"
-    }
-  ],
-  "search:d": [
+    },
     {
-      "name": "Dead by Daylight",
-      "appid": 381210,
-      "url": "https://store.steampowered.com/app/381210"
+      "name": "Warframe",
+      "appid": 230410,
+      "url": "https://store.steampowered.com/app/230410"
+    },
+    {
+      "name": "Marvel Rivals",
+      "appid": 2767030,
+      "url": "https://store.steampowered.com/app/2767030"
+    },
+    {
+      "name": "ELDEN RING NIGHTREIGN",
+      "appid": 2622380,
+      "url": "https://store.steampowered.com/app/2622380"
+    },
+    {
+      "name": "Ready or Not",
+      "appid": 1144200,
+      "url": "https://store.steampowered.com/app/1144200"
     },
     {
       "name": "Umamusume: Pretty Derby",
       "appid": 3224770,
       "url": "https://store.steampowered.com/app/3224770"
-    },
-    {
-      "name": "Destiny 2",
-      "appid": 1085660,
-      "url": "https://store.steampowered.com/app/1085660"
-    },
-    {
-      "name": "Dota 2",
-      "appid": 570,
-      "url": "https://store.steampowered.com/app/570"
-    },
-    {
-      "name": "Diablo® IV",
-      "appid": 2344520,
-      "url": "https://store.steampowered.com/app/2344520"
-    }
-  ],
-  "search:dark": [
-    {
-      "name": "DOOM: The Dark Ages",
-      "appid": 3017860,
-      "url": "https://store.steampowered.com/app/3017860"
-    },
-    {
-      "name": "Warhammer 40,000: Darktide",
-      "appid": 1361210,
-      "url": "https://store.steampowered.com/app/1361210"
-    },
-    {
-      "name": "Ready or Not: Dark Waters",
-      "appid": 3174120,
-      "url": "https://store.steampowered.com/app/3174120"
-    },
-    {
-      "name": "DARK SOULS™ III",
-      "appid": 374320,
-      "url": "https://store.steampowered.com/app/374320"
-    },
-    {
-      "name": "Warhammer 40,000: Darktide - Arbites Class",
-      "appid": 3710910,
-      "url": "https://store.steampowered.com/app/3710910"
-    }
-  ],
-  "search:darks": [
-    {
-      "name": "DARK SOULS™ III",
-      "appid": 374320,
-      "url": "https://store.steampowered.com/app/374320"
-    },
-    {
-      "name": "DARK SOULS™: REMASTERED",
-      "appid": 570940,
-      "url": "https://store.steampowered.com/app/570940"
-    },
-    {
-      "name": "Darksiders III",
-      "appid": 606280,
-      "url": "https://store.steampowered.com/app/606280"
-    },
-    {
-      "name": "Darksiders 4",
-      "appid": 1203170,
-      "url": "https://store.steampowered.com/app/1203170"
-    },
-    {
-      "name": "Darksiders Genesis",
-      "appid": 710920,
-      "url": "https://store.steampowered.com/app/710920"
-    }
-  ],
-  "search:da": [
-    {
-      "name": "Dead by Daylight",
-      "appid": 381210,
-      "url": "https://store.steampowered.com/app/381210"
-    },
-    {
-      "name": "DOOM: The Dark Ages",
-      "appid": 3017860,
-      "url": "https://store.steampowered.com/app/3017860"
-    },
-    {
-      "name": "Date Everything!",
-      "appid": 2201320,
-      "url": "https://store.steampowered.com/app/2201320"
-    },
-    {
-      "name": "Warhammer 40,000: Darktide",
-      "appid": 1361210,
-      "url": "https://store.steampowered.com/app/1361210"
-    },
-    {
-      "name": "7 Days to Die",
-      "appid": 251570,
-      "url": "https://store.steampowered.com/app/251570"
-    }
-  ],
-  "search:dar": [
-    {
-      "name": "DOOM: The Dark Ages",
-      "appid": 3017860,
-      "url": "https://store.steampowered.com/app/3017860"
-    },
-    {
-      "name": "Warhammer 40,000: Darktide",
-      "appid": 1361210,
-      "url": "https://store.steampowered.com/app/1361210"
-    },
-    {
-      "name": "Ready or Not: Dark Waters",
-      "appid": 3174120,
-      "url": "https://store.steampowered.com/app/3174120"
-    },
-    {
-      "name": "DARK SOULS™ III",
-      "appid": 374320,
-      "url": "https://store.steampowered.com/app/374320"
-    },
-    {
-      "name": "Warhammer 40,000: Darktide - Arbites Class",
-      "appid": 3710910,
-      "url": "https://store.steampowered.com/app/3710910"
-    }
-  ],
-  "search:darksi": [
-    {
-      "name": "Darksiders III",
-      "appid": 606280,
-      "url": "https://store.steampowered.com/app/606280"
-    },
-    {
-      "name": "Darksiders 4",
-      "appid": 1203170,
-      "url": "https://store.steampowered.com/app/1203170"
-    },
-    {
-      "name": "Darksiders Genesis",
-      "appid": 710920,
-      "url": "https://store.steampowered.com/app/710920"
-    },
-    {
-      "name": "Darksiders II Deathinitive Edition",
-      "appid": 388410,
-      "url": "https://store.steampowered.com/app/388410"
-    },
-    {
-      "name": "Darksiders™",
-      "appid": 50620,
-      "url": "https://store.steampowered.com/app/50620"
-    }
-  ],
-  "search:darksid": [
-    {
-      "name": "Darksiders III",
-      "appid": 606280,
-      "url": "https://store.steampowered.com/app/606280"
-    },
-    {
-      "name": "Darksiders 4",
-      "appid": 1203170,
-      "url": "https://store.steampowered.com/app/1203170"
-    },
-    {
-      "name": "Darksiders Genesis",
-      "appid": 710920,
-      "url": "https://store.steampowered.com/app/710920"
-    },
-    {
-      "name": "Darksiders II Deathinitive Edition",
-      "appid": 388410,
-      "url": "https://store.steampowered.com/app/388410"
-    },
-    {
-      "name": "Darksiders™",
-      "appid": 50620,
-      "url": "https://store.steampowered.com/app/50620"
-    }
-  ],
-  "search:darksider": [
-    {
-      "name": "Darksiders III",
-      "appid": 606280,
-      "url": "https://store.steampowered.com/app/606280"
-    },
-    {
-      "name": "Darksiders 4",
-      "appid": 1203170,
-      "url": "https://store.steampowered.com/app/1203170"
-    },
-    {
-      "name": "Darksiders Genesis",
-      "appid": 710920,
-      "url": "https://store.steampowered.com/app/710920"
-    },
-    {
-      "name": "Darksiders II Deathinitive Edition",
-      "appid": 388410,
-      "url": "https://store.steampowered.com/app/388410"
-    },
-    {
-      "name": "Darksiders™",
-      "appid": 50620,
-      "url": "https://store.steampowered.com/app/50620"
-    }
-  ],
-  "search:darkside": [
-    {
-      "name": "Darksiders III",
-      "appid": 606280,
-      "url": "https://store.steampowered.com/app/606280"
-    },
-    {
-      "name": "Darksiders 4",
-      "appid": 1203170,
-      "url": "https://store.steampowered.com/app/1203170"
-    },
-    {
-      "name": "Darksiders Genesis",
-      "appid": 710920,
-      "url": "https://store.steampowered.com/app/710920"
-    },
-    {
-      "name": "Darksiders II Deathinitive Edition",
-      "appid": 388410,
-      "url": "https://store.steampowered.com/app/388410"
-    },
-    {
-      "name": "Darksiders™",
-      "appid": 50620,
-      "url": "https://store.steampowered.com/app/50620"
-    }
-  ],
-  "search:groun": [
-    {
-      "name": "Grounded 2",
-      "appid": 2661300,
-      "url": "https://store.steampowered.com/app/2661300"
-    },
-    {
-      "name": "Grounded",
-      "appid": 962130,
-      "url": "https://store.steampowered.com/app/962130"
-    },
-    {
-      "name": "Grounded 2: Founder’s Pack",
-      "appid": 3788090,
-      "url": "https://store.steampowered.com/app/3788090"
-    },
-    {
-      "name": "Ground of Aces",
-      "appid": 2308690,
-      "url": "https://store.steampowered.com/app/2308690"
-    },
-    {
-      "name": "GROUND BRANCH",
-      "appid": 16900,
-      "url": "https://store.steampowered.com/app/16900"
-    }
-  ],
-  "search:ground": [
-    {
-      "name": "Grounded 2",
-      "appid": 2661300,
-      "url": "https://store.steampowered.com/app/2661300"
-    },
-    {
-      "name": "Grounded",
-      "appid": 962130,
-      "url": "https://store.steampowered.com/app/962130"
-    },
-    {
-      "name": "Grounded 2: Founder’s Pack",
-      "appid": 3788090,
-      "url": "https://store.steampowered.com/app/3788090"
-    },
-    {
-      "name": "Ground of Aces",
-      "appid": 2308690,
-      "url": "https://store.steampowered.com/app/2308690"
-    },
-    {
-      "name": "GROUND BRANCH",
-      "appid": 16900,
-      "url": "https://store.steampowered.com/app/16900"
-    }
-  ],
-  "search:grounde": [
-    {
-      "name": "Grounded 2",
-      "appid": 2661300,
-      "url": "https://store.steampowered.com/app/2661300"
-    },
-    {
-      "name": "Grounded",
-      "appid": 962130,
-      "url": "https://store.steampowered.com/app/962130"
-    },
-    {
-      "name": "Grounded 2: Founder’s Pack",
-      "appid": 3788090,
-      "url": "https://store.steampowered.com/app/3788090"
-    },
-    {
-      "name": "Grounded (Official Soundtrack)",
-      "appid": 2161390,
-      "url": "https://store.steampowered.com/app/2161390"
-    },
-    {
-      "name": "You Are Grounded",
-      "appid": 3161920,
-      "url": "https://store.steampowered.com/app/3161920"
     }
   ],
   "search:g": [
@@ -385,18 +76,6 @@
       "name": "Tales of the Shire: A The Lord of The Rings™ Game",
       "appid": 2016460,
       "url": "https://store.steampowered.com/app/2016460"
-    }
-  ],
-  "search:gr": [
-    {
-      "name": "Grounded 2",
-      "appid": 2661300,
-      "url": "https://store.steampowered.com/app/2661300"
-    },
-    {
-      "name": "Grand Theft Auto V Enhanced",
-      "appid": 3240220,
-      "url": "https://store.steampowered.com/app/3240220"
     },
     {
       "name": "Grounded",
@@ -404,17 +83,27 @@
       "url": "https://store.steampowered.com/app/962130"
     },
     {
-      "name": "Tainted Grail: The Fall of Avalon",
-      "appid": 1466060,
-      "url": "https://store.steampowered.com/app/1466060"
+      "name": "Guild Wars 2",
+      "appid": 1284210,
+      "url": "https://store.steampowered.com/app/1284210"
     },
     {
-      "name": "Grounded 2: Founder’s Pack",
-      "appid": 3788090,
-      "url": "https://store.steampowered.com/app/3788090"
+      "name": "FANTASY LIFE i: The Girl Who Steals Time",
+      "appid": 2993780,
+      "url": "https://store.steampowered.com/app/2993780"
+    },
+    {
+      "name": "Yu-Gi-Oh! Master Duel",
+      "appid": 1449850,
+      "url": "https://store.steampowered.com/app/1449850"
+    },
+    {
+      "name": "Deep Rock Galactic",
+      "appid": 548430,
+      "url": "https://store.steampowered.com/app/548430"
     }
   ],
-  "search:gro": [
+  "search:grounded": [
     {
       "name": "Grounded 2",
       "appid": 2661300,
@@ -424,28 +113,6 @@
       "name": "Grounded",
       "appid": 962130,
       "url": "https://store.steampowered.com/app/962130"
-    },
-    {
-      "name": "Grounded 2: Founder’s Pack",
-      "appid": 3788090,
-      "url": "https://store.steampowered.com/app/3788090"
-    },
-    {
-      "name": "Ground of Aces",
-      "appid": 2308690,
-      "url": "https://store.steampowered.com/app/2308690"
-    },
-    {
-      "name": "GROUND BRANCH",
-      "appid": 16900,
-      "url": "https://store.steampowered.com/app/16900"
-    }
-  ],
-  "search:grounded ": [
-    {
-      "name": "Grounded 2",
-      "appid": 2661300,
-      "url": "https://store.steampowered.com/app/2661300"
     },
     {
       "name": "Grounded 2: Founder’s Pack",
@@ -458,21 +125,26 @@
       "url": "https://store.steampowered.com/app/2161390"
     },
     {
-      "name": "Grounded 2 Digital Artbook & Soundtrack",
-      "appid": 3784940,
-      "url": "https://store.steampowered.com/app/3784940"
-    },
-    {
       "name": "You Are Grounded",
       "appid": 3161920,
       "url": "https://store.steampowered.com/app/3161920"
+    },
+    {
+      "name": "Grounded 2 Digital Artbook & Soundtrack",
+      "appid": 3784940,
+      "url": "https://store.steampowered.com/app/3784940"
     }
   ],
-  "search:grounded 2": [
+  "search:grounde": [
     {
       "name": "Grounded 2",
       "appid": 2661300,
       "url": "https://store.steampowered.com/app/2661300"
+    },
+    {
+      "name": "Grounded",
+      "appid": 962130,
+      "url": "https://store.steampowered.com/app/962130"
     },
     {
       "name": "Grounded 2: Founder’s Pack",
@@ -480,9 +152,279 @@
       "url": "https://store.steampowered.com/app/3788090"
     },
     {
+      "name": "Grounded (Official Soundtrack)",
+      "appid": 2161390,
+      "url": "https://store.steampowered.com/app/2161390"
+    },
+    {
+      "name": "You Are Grounded",
+      "appid": 3161920,
+      "url": "https://store.steampowered.com/app/3161920"
+    },
+    {
+      "name": "Grounders",
+      "appid": 2446430,
+      "url": "https://store.steampowered.com/app/2446430"
+    },
+    {
       "name": "Grounded 2 Digital Artbook & Soundtrack",
       "appid": 3784940,
       "url": "https://store.steampowered.com/app/3784940"
+    }
+  ],
+  "search:darksiders": [
+    {
+      "name": "Darksiders III",
+      "appid": 606280,
+      "url": "https://store.steampowered.com/app/606280"
+    },
+    {
+      "name": "Darksiders 4",
+      "appid": 1203170,
+      "url": "https://store.steampowered.com/app/1203170"
+    },
+    {
+      "name": "Darksiders Genesis",
+      "appid": 710920,
+      "url": "https://store.steampowered.com/app/710920"
+    },
+    {
+      "name": "Darksiders II Deathinitive Edition",
+      "appid": 388410,
+      "url": "https://store.steampowered.com/app/388410"
+    },
+    {
+      "name": "Darksiders™",
+      "appid": 50620,
+      "url": "https://store.steampowered.com/app/50620"
+    },
+    {
+      "name": "Darksiders Warmastered Edition",
+      "appid": 462780,
+      "url": "https://store.steampowered.com/app/462780"
+    },
+    {
+      "name": "Darksiders Genesis - Digital Extras",
+      "appid": 1203440,
+      "url": "https://store.steampowered.com/app/1203440"
+    },
+    {
+      "name": "Darksiders II Deathinitive Edition Soundtrack",
+      "appid": 417380,
+      "url": "https://store.steampowered.com/app/417380"
+    }
+  ],
+  "search:darksiders™": [
+    {
+      "name": "Darksiders III",
+      "appid": 606280,
+      "url": "https://store.steampowered.com/app/606280"
+    },
+    {
+      "name": "Darksiders 4",
+      "appid": 1203170,
+      "url": "https://store.steampowered.com/app/1203170"
+    },
+    {
+      "name": "Darksiders Genesis",
+      "appid": 710920,
+      "url": "https://store.steampowered.com/app/710920"
+    },
+    {
+      "name": "Darksiders II Deathinitive Edition",
+      "appid": 388410,
+      "url": "https://store.steampowered.com/app/388410"
+    },
+    {
+      "name": "Darksiders™",
+      "appid": 50620,
+      "url": "https://store.steampowered.com/app/50620"
+    },
+    {
+      "name": "Darksiders Warmastered Edition",
+      "appid": 462780,
+      "url": "https://store.steampowered.com/app/462780"
+    },
+    {
+      "name": "Darksiders Genesis - Digital Extras",
+      "appid": 1203440,
+      "url": "https://store.steampowered.com/app/1203440"
+    },
+    {
+      "name": "Darksiders II Deathinitive Edition Soundtrack",
+      "appid": 417380,
+      "url": "https://store.steampowered.com/app/417380"
+    }
+  ],
+  "search:a": [
+    {
+      "name": "Apex Legends™",
+      "appid": 1172470,
+      "url": "https://store.steampowered.com/app/1172470"
+    },
+    {
+      "name": "Mage Arena",
+      "appid": 3716600,
+      "url": "https://store.steampowered.com/app/3716600"
+    },
+    {
+      "name": "Grand Theft Auto V Enhanced",
+      "appid": 3240220,
+      "url": "https://store.steampowered.com/app/3240220"
+    },
+    {
+      "name": "Dune: Awakening",
+      "appid": 1172710,
+      "url": "https://store.steampowered.com/app/1172710"
+    },
+    {
+      "name": "HITMAN World of Assassination",
+      "appid": 1659040,
+      "url": "https://store.steampowered.com/app/1659040"
+    },
+    {
+      "name": "Magic: The Gathering Arena",
+      "appid": 2141910,
+      "url": "https://store.steampowered.com/app/2141910"
+    },
+    {
+      "name": "Abiotic Factor",
+      "appid": 427410,
+      "url": "https://store.steampowered.com/app/427410"
+    },
+    {
+      "name": "ARK: Survival Ascended",
+      "appid": 2399830,
+      "url": "https://store.steampowered.com/app/2399830"
+    },
+    {
+      "name": "Tales of the Shire: A The Lord of The Rings™ Game",
+      "appid": 2016460,
+      "url": "https://store.steampowered.com/app/2016460"
+    },
+    {
+      "name": "DOOM: The Dark Ages",
+      "appid": 3017860,
+      "url": "https://store.steampowered.com/app/3017860"
+    }
+  ],
+  "search:abiotic factor": [
+    {
+      "name": "Abiotic Factor",
+      "appid": 427410,
+      "url": "https://store.steampowered.com/app/427410"
+    },
+    {
+      "name": "Abiotic Factor - Supporter's Pack",
+      "appid": 3641780,
+      "url": "https://store.steampowered.com/app/3641780"
+    }
+  ],
+  "search:s": [
+    {
+      "name": "Counter-Strike 2",
+      "appid": 730,
+      "url": "https://store.steampowered.com/app/730"
+    },
+    {
+      "name": "Tom Clancy's Rainbow Six® Siege X",
+      "appid": 359550,
+      "url": "https://store.steampowered.com/app/359550"
+    },
+    {
+      "name": "The Sims™ 4",
+      "appid": 1222670,
+      "url": "https://store.steampowered.com/app/1222670"
+    },
+    {
+      "name": "Battlefield™ 6",
+      "appid": 2807960,
+      "url": "https://store.steampowered.com/app/2807960"
+    },
+    {
+      "name": "Warhammer 40,000: Space Marine 2",
+      "appid": 2183900,
+      "url": "https://store.steampowered.com/app/2183900"
+    },
+    {
+      "name": "Stellar Blade™",
+      "appid": 3489700,
+      "url": "https://store.steampowered.com/app/3489700"
+    },
+    {
+      "name": "Street Fighter™ 6",
+      "appid": 1364780,
+      "url": "https://store.steampowered.com/app/1364780"
+    },
+    {
+      "name": "Split Fiction",
+      "appid": 2001120,
+      "url": "https://store.steampowered.com/app/2001120"
+    },
+    {
+      "name": "Schedule I",
+      "appid": 3164500,
+      "url": "https://store.steampowered.com/app/3164500"
+    },
+    {
+      "name": "Euro Truck Simulator 2",
+      "appid": 227300,
+      "url": "https://store.steampowered.com/app/227300"
+    }
+  ],
+  "search:suban": [],
+  "search:suba": [
+    {
+      "name": "Forza Horizon 5 2019 SUBARU STI S209",
+      "appid": 1764060,
+      "url": "https://store.steampowered.com/app/1764060"
+    },
+    {
+      "name": "DiRT Rally 2.0 - Subaru Impreza",
+      "appid": 1004940,
+      "url": "https://store.steampowered.com/app/1004940"
+    },
+    {
+      "name": "DiRT Rally 2.0 - SUBARU Impreza (2001)",
+      "appid": 1118270,
+      "url": "https://store.steampowered.com/app/1118270"
+    },
+    {
+      "name": "KonoSuba: God's Blessing on this Wonderful World! Love For These Clothes Of Desire! - Megumin Special Swimsuit DLC",
+      "appid": 2590890,
+      "url": "https://store.steampowered.com/app/2590890"
+    },
+    {
+      "name": "SUBARACITY",
+      "appid": 1022530,
+      "url": "https://store.steampowered.com/app/1022530"
+    },
+    {
+      "name": "WRC 10 Subaru Impreza WRC 1997",
+      "appid": 1654720,
+      "url": "https://store.steampowered.com/app/1654720"
+    },
+    {
+      "name": "KonoSuba: God's Blessing on this Wonderful World! Love For These Clothes Of Desire! - Aqua Special Swimsuit DLC",
+      "appid": 2590880,
+      "url": "https://store.steampowered.com/app/2590880"
+    },
+    {
+      "name": "KonoSuba: God's Blessing on this Wonderful World! Love For These Clothes Of Desire! - Darkness Special Swimsuit DLC",
+      "appid": 2590900,
+      "url": "https://store.steampowered.com/app/2590900"
+    },
+    {
+      "name": "Subaeria",
+      "appid": 377250,
+      "url": "https://store.steampowered.com/app/377250"
+    }
+  ],
+  "search:subnautica 2": [
+    {
+      "name": "Subnautica 2",
+      "appid": 1962700,
+      "url": "https://store.steampowered.com/app/1962700"
     }
   ]
 }
