@@ -62,7 +62,7 @@ async function searchSteamGame(query: string): Promise<{ name: string; appid: nu
     saveCache();
     return results;
   } catch (err) {
-    console.warn('⚠️ Steam API search failed:', err);
+    console.warn('Steam API search failed:', err);
     return [];
   }
 }
@@ -136,24 +136,24 @@ client.on('interactionCreate', async interaction => {
 
   const gameName = interaction.options.getString('game', true);
   if (interaction.channel?.id !== submissionChannel) {
-    return interaction.reply({ content: '❌ Please use the designated submission channel.', ephemeral: true });
+    return interaction.reply({ content: 'Please use the designated submission channel.', ephemeral: true });
   }
 
   const rawMatches = await searchSteamGame(gameName);
   const matches = Array.isArray(rawMatches) ? rawMatches : [];
   const steamGame = matches.find(m => m.name.toLowerCase() === gameName.toLowerCase()) || matches[0];
   if (!steamGame) {
-    return interaction.reply({ content: '❌ Game not found on Steam.', ephemeral: true });
+    return interaction.reply({ content: 'Game not found on Steam.', ephemeral: true });
   }
 
   const details = await fetchSteamDetails(steamGame.appid);
   if (!details) {
-    return interaction.reply({ content: '❌ Could not fetch game details.', ephemeral: true });
+    return interaction.reply({ content: 'Could not fetch game details.', ephemeral: true });
   }
 
   const type = getGameType(details.categories);
   if (type === 'unknown') {
-    return interaction.reply({ content: '❌ Could not determine game type.', ephemeral: true });
+    return interaction.reply({ content: 'Could not determine game type.', ephemeral: true });
   }
 
   const entry: WishlistEntry = { name: steamGame.name, appid: steamGame.appid, suggester: interaction.user.username };
@@ -161,7 +161,7 @@ client.on('interactionCreate', async interaction => {
     ? singleList.some(g => g.appid === entry.appid)
     : multiList.some(g => g.appid === entry.appid);
   if (dup) {
-    return interaction.reply({ content: '⚠️ This game is already in the wishlist.', ephemeral: true });
+    return interaction.reply({ content: 'This game is already in the wishlist.', ephemeral: true });
   }
 
   if (type === 'single') { singleList.push(entry); await postGameEmbed(singleDisplayChannel, entry); }
@@ -221,7 +221,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
               reason: 'Everyone in the server has this game'
             });
           } catch (e) {
-            console.warn('⚠️ Failed to create voice channel:', e);
+            console.warn('Failed to create voice channel:', e);
           }
         }
       }
@@ -230,5 +230,5 @@ client.on('messageReactionAdd', async (reaction, user) => {
   }
 });
 
-client.once('ready', () => console.log(`✅ Logged in as ${client.user?.tag}`));
+client.once('ready', () => console.log(`Logged in as ${client.user?.tag}`));
 client.login(process.env.DISCORD_TOKEN);
